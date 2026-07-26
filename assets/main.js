@@ -29,11 +29,10 @@
         : menuButton.dataset.labelOpen || "Open menu"
     );
     mobileMenu.hidden = !open;
-    document.body.style.overflow = open ? "hidden" : "";
   };
 
   menuButton?.addEventListener("click", () => {
-    setMenu(menuButton.getAttribute("aria-expanded") !== "true");
+    setMenu(Boolean(mobileMenu && mobileMenu.hidden));
   });
 
   mobileMenu?.querySelectorAll("a").forEach((link) => {

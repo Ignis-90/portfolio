@@ -370,7 +370,12 @@ em {
 }
 
 .mobile-menu {
-  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  max-height: calc(100svh - 4.6rem);
+  overflow-y: auto;
   border-top: 1px solid var(--hairline);
   background: var(--bg);
 }
