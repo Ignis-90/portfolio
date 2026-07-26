@@ -1,475 +1,273 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Piergiorgio Panzini | Senior Klaviyo Specialist</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-<style>
-  body {
-    background-color: #131314;
-    color: #e5e2e3;
-    scroll-behavior: smooth;
-  }
-  .font-headline-lg, .font-display-xl, .font-headline-md { font-family: 'EB Garamond', serif; }
-  .font-body-md, .font-body-lg, .font-label-caps { font-family: 'DM Sans', sans-serif; }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .asymmetric-rule {
-    height: 1px;
-    background: linear-gradient(90deg, #ffe2ab 0%, rgba(255,226,171,0) 100%);
-  }
-
-  .amber-hover-btn {
-    transition: all 0.3s ease;
-  }
-  .amber-hover-btn:hover {
-    background-color: transparent !important;
-    border: 1px solid #ffe2ab;
-    color: #ffe2ab !important;
-  }
-</style>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          "surface-bright": "#39393a",
-          "primary": "#c2c6db",
-          "on-error": "#690005",
-          "error-container": "#93000a",
-          "on-primary-fixed-variant": "#414658",
-          "on-tertiary-fixed-variant": "#484742",
-          "primary-fixed": "#dee1f7",
-          "on-primary-fixed": "#161b2b",
-          "on-primary-container": "#777b8e",
-          "on-secondary": "#402d00",
-          "on-tertiary-container": "#7f7c77",
-          "surface-dim": "#131314",
-          "on-error-container": "#ffdad6",
-          "secondary": "#ffe2ab",
-          "surface": "#131314",
-          "tertiary-container": "#11100d",
-          "surface-container-highest": "#353436",
-          "secondary-fixed": "#ffdfa0",
-          "on-background": "#e5e2e3",
-          "tertiary-fixed": "#e6e2dc",
-          "primary-container": "#0a0f1e",
-          "on-secondary-container": "#6d5000",
-          "on-tertiary-fixed": "#1d1b18",
-          "surface-container-low": "#1c1b1d",
-          "inverse-primary": "#595e70",
-          "on-surface-variant": "#c7c6cd",
-          "surface-container": "#201f21",
-          "surface-container-lowest": "#0e0e0f",
-          "surface-tint": "#c2c6db",
-          "primary-fixed-dim": "#c2c6db",
-          "surface-variant": "#353436",
-          "inverse-surface": "#e5e2e3",
-          "secondary-fixed-dim": "#fbbc00",
-          "background": "#131314",
-          "on-secondary-fixed": "#261a00",
-          "secondary-container": "#ffbf00",
-          "outline-variant": "#46464c",
-          "on-primary": "#2b3040",
-          "outline": "#909097",
-          "error": "#ffb4ab",
-          "tertiary-fixed-dim": "#cac6c0",
-          "inverse-on-surface": "#313031",
-          "surface-container-high": "#2a2a2b",
-          "on-surface": "#e5e2e3",
-          "tertiary": "#cac6c0",
-          "on-tertiary": "#32302c",
-          "on-secondary-fixed-variant": "#5c4300"
-        },
-        borderRadius: {
-          DEFAULT: "0px",
-          lg: "0px",
-          xl: "0px",
-          full: "9999px"
-        },
-        spacing: {
-          "section-padding-mobile": "64px",
-          "unit": "8px",
-          "section-padding-desktop": "120px",
-          "container-max": "1280px",
-          "gutter": "32px"
-        },
-        fontFamily: {
-          "label-caps": ["DM Sans"],
-          "body-md": ["DM Sans"],
-          "headline-lg": ["EB Garamond"],
-          "body-lg": ["DM Sans"],
-          "headline-md": ["EB Garamond"],
-          "display-xl": ["EB Garamond"],
-          "display-xl-mobile": ["EB Garamond"]
-        },
-        fontSize: {
-          "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "700" }],
-          "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
-          "headline-lg": ["48px", { lineHeight: "1.2", fontWeight: "500" }],
-          "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "400" }],
-          "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "500" }],
-          "display-xl": ["80px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "500" }],
-          "display-xl-mobile": ["48px", { lineHeight: "1.1", fontWeight: "500" }]
-        }
-      }
-    }
-  }
-</script>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.add("js");</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Piergiorgio Panzini | Senior Klaviyo Specialist</title>
+  <meta name="description" content="Klaviyo strategy, automation and management for e-commerce brands that are serious about retention. Case studies: €91,000 email revenue in 3 months from a compromised list.">
+  <meta name="theme-color" content="#0F0F10">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://www.panzini.pro/">
+  <link rel="alternate" hreflang="en" href="https://www.panzini.pro/">
+  <link rel="alternate" hreflang="it" href="https://www.panzini.pro/it/">
+  <link rel="alternate" hreflang="x-default" href="https://www.panzini.pro/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Piergiorgio Panzini | Senior Klaviyo Specialist">
+  <meta property="og:description" content="Klaviyo strategy, automation and management for e-commerce brands that are serious about retention. Case studies: €91,000 email revenue in 3 months from a compromised list.">
+  <meta property="og:image" content="https://www.panzini.pro/piergiorgio.jpg">
+  <meta property="og:url" content="https://www.panzini.pro/">
+  <meta property="og:locale" content="en_US">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..600;1,9..144,340..600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/styles.css">
+  <script src="./assets/main.js" defer></script>
 </head>
-<body class="bg-background text-on-background selection:bg-secondary selection:text-on-secondary">
-
-<!-- Top Navigation -->
-<nav class="full-width top-0 sticky z-50 bg-background dark:bg-background border-b border-outline-variant/10">
-  <div class="flex justify-between items-center w-full px-gutter py-unit max-w-container-max mx-auto h-20">
-    <div class="font-headline-md text-headline-md text-on-background uppercase tracking-tighter">
-      Piergiorgio Panzini
-    </div>
-    <div class="hidden md:flex items-center gap-10">
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#about">About</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#services">Services</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#philosophy">Philosophy</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#contact">Contact</a>
-      <a class="bg-secondary text-on-secondary px-6 py-3 font-label-caps text-label-caps uppercase amber-hover-btn" href="https://www.linkedin.com/in/piergiorgiopanzini/" target="_blank" rel="noopener noreferrer">Contact me</a>
-    </div>
-    <button class="md:hidden text-on-background" onclick="toggleMobileMenu()">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
-  </div>
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-background border-t border-outline-variant/10 px-gutter py-6 flex flex-col gap-6">
-    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors" href="#about" onclick="toggleMobileMenu()">About</a>
-    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors" href="#services" onclick="toggleMobileMenu()">Services</a>
-    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors" href="#philosophy" onclick="toggleMobileMenu()">Philosophy</a>
-    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors" href="#contact" onclick="toggleMobileMenu()">Contact</a>
-    <a class="bg-secondary text-on-secondary px-6 py-3 font-label-caps text-label-caps uppercase amber-hover-btn text-center" href="https://www.linkedin.com/in/piergiorgiopanzini/" target="_blank" rel="noopener noreferrer" onclick="toggleMobileMenu()">Contact me</a>
-  </div>
-</nav>
-
-<main>
-
-  <!-- Hero Section -->
-  <section class="min-h-[80vh] flex flex-col justify-center px-gutter max-w-container-max mx-auto pt-20 pb-section-padding-desktop">
-    <div class="grid grid-cols-12 gap-unit">
-      <div class="col-span-12 md:col-span-10 lg:col-span-8">
-        <div class="font-label-caps text-label-caps text-secondary mb-6 tracking-[0.2em] uppercase">
-          Senior Klaviyo Specialist
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="/" aria-label="Piergiorgio Panzini, home">
+        <span class="brand-mark">PP</span>
+        <span class="brand-name">Piergiorgio Panzini</span>
+      </a>
+      <div class="nav-desktop">
+        <a href="#about">About</a>
+        <a href="#case-studies">Case studies</a>
+        <a href="#method">Method</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a class="button button-small" href="https://www.linkedin.com/in/piergiorgiopanzini/" target="_blank" rel="noopener noreferrer">Contact me <span aria-hidden="true">↗</span></a>
+        <div class="language-switcher" aria-label="Select language">
+          <a class="active" href="/" lang="en" aria-current="page">EN</a><span aria-hidden="true">|</span><a href="/it/" lang="it">IT</a>
         </div>
-        <h1 class="font-display-xl text-display-xl-mobile md:text-display-xl mb-10 leading-tight">
-          You've already solved the abandoned cart. Now let's build everything around it.
-        </h1>
-        <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl">
-          Klaviyo strategy, automation and management for e-commerce brands that are serious about retention - not just recovery.
-        </p>
-        <div class="flex flex-col sm:flex-row items-start gap-8">
-          <a class="bg-secondary text-on-secondary px-10 py-5 font-label-caps text-label-caps text-lg uppercase tracking-wider amber-hover-btn" href="https://www.linkedin.com/in/piergiorgiopanzini/" target="_blank" rel="noopener noreferrer">
-            Contact me
-          </a>
+      </div>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" data-menu-toggle>
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg>
+        <svg class="close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"/></svg>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+      <div class="container mobile-menu-inner">
+        <a href="#about">About</a>
+        <a href="#case-studies">Case studies</a>
+        <a href="#method">Method</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a class="button" href="https://www.linkedin.com/in/piergiorgiopanzini/" target="_blank" rel="noopener noreferrer">Contact me <span aria-hidden="true">↗</span></a>
+        <div class="language-switcher" aria-label="Select language">
+          <a class="active" href="/" lang="en" aria-current="page">EN</a><span aria-hidden="true">|</span><a href="/it/" lang="it">IT</a>
         </div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Divider -->
-  <div class="w-full h-px bg-outline-variant/20 max-w-container-max mx-auto"></div>
+  <main id="main">
+    <section class="hero container">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-content reveal">
+        <p class="kicker">Senior Klaviyo Specialist</p>
+        <h1>You've already solved the abandoned cart. Now let's build <em>everything around it.</em></h1>
+        <p class="hero-intro">Klaviyo strategy, automation and management for e-commerce brands that are serious about retention - not just recovery.</p>
+        <div class="hero-actions">
+          <a class="button" href="https://www.linkedin.com/in/piergiorgiopanzini/" target="_blank" rel="noopener noreferrer">Contact me <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#case-studies">See the results <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-index" aria-hidden="true"><span>Retention</span><span>Strategy</span><span>Systems</span></div>
+      <a class="scroll-cue" href="#problem"><span>Scroll</span><span class="scroll-line"></span></a>
+    </section>
 
-  <!-- The Problem -->
-  <section class="py-section-padding-desktop px-gutter max-w-container-max mx-auto reveal">
-    <div class="grid grid-cols-12 gap-y-12 md:gap-gutter items-start">
-      <div class="col-span-12 md:col-span-5">
-        <h2 class="font-headline-lg text-headline-lg mb-8 leading-none">
-          Most Klaviyo accounts are underbuilt
-        </h2>
-        <div class="asymmetric-rule w-32 mb-8"></div>
-        <p class="font-headline-md text-headline-md italic text-primary leading-tight">
-          "Klaviyo is not an email tool. It's the connective tissue of your entire business. Most brands use 20% of it."
-        </p>
+    <section class="section problem container" id="problem">
+      <div class="section-number" aria-hidden="true">01 / Problem</div>
+      <div class="problem-grid">
+        <div class="reveal">
+          <h2>Most Klaviyo accounts are underbuilt</h2>
+          <div class="gold-rule"></div>
+          <blockquote>"Klaviyo is not an email tool. It's the connective tissue of your entire business. Most brands use 20% of it."</blockquote>
+        </div>
+        <p class="problem-copy reveal">Most Klaviyo accounts run flows and campaigns in isolation. I bridge the gap between your retention strategy and your actual business data. By integrating every touchpoint - from paid acquisition to post-purchase support - I build systems that drive predictable, long-term growth instead of just sending one-off emails.</p>
       </div>
-      <div class="col-span-12 md:col-start-7 md:col-span-6 pt-0 md:pt-24">
-        <p class="font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
-          Most Klaviyo accounts run flows and campaigns in isolation. I bridge the gap between your retention strategy and your actual business data. By integrating every touchpoint - from paid acquisition to post-purchase support - I build systems that drive predictable, long-term growth instead of just sending one-off emails.
-        </p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Philosophy -->
-  <section class="bg-surface-container-lowest py-section-padding-desktop px-gutter reveal" id="philosophy">
-    <div class="max-w-container-max mx-auto">
-      <div class="mb-20">
-        <span class="font-label-caps text-label-caps text-secondary mb-4 block">MY PHILOSOPHY</span>
-        <h2 class="font-display-xl text-display-xl-mobile md:text-display-xl mb-6">The ecosystem approach</h2>
-        <p class="font-body-lg text-body-lg max-w-2xl text-on-surface-variant">A well-built retention program isn't just about emails - it's a strategic blueprint that connects acquisition, product intelligence, omnichannel relationships, and post-purchase stability into a single, high-performing system.</p>
-      </div>
+    <section class="section case-studies" id="case-studies">
+      <div class="container">
+        <div class="section-number" aria-hidden="true">02 / Proof</div>
+        <header class="section-heading reveal">
+          <p class="kicker">Case studies</p>
+          <h2>Results, <em>not promises</em></h2>
+          <p>Real numbers from real accounts. No screenshots cherry-picked from a good week: three-month windows, verifiable in Klaviyo.</p>
+        </header>
 
-      <div class="mb-20 flex justify-center w-full">
-        <div class="w-full max-w-2xl">
-          <img alt="The Retention Ecosystem" class="w-full h-auto object-contain" src="./ecosystem.webp">
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        <div class="border border-outline-variant/20 p-10 hover:border-secondary transition-colors duration-500 bg-surface">
-          <span class="font-headline-md text-secondary block mb-4">01</span>
-          <h3 class="font-headline-md text-headline-md mb-4">Paid media alignment</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant">Synchronizing Klaviyo segments with Meta and Google ads to lower CAC and suppress existing customers from top-of-funnel spend.</p>
-        </div>
-        <div class="border border-outline-variant/20 p-10 hover:border-secondary transition-colors duration-500 bg-surface">
-          <span class="font-headline-md text-secondary block mb-4">02</span>
-          <h3 class="font-headline-md text-headline-md mb-4">Product intelligence</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant">Leveraging zero and first-party data to predict next-purchase timing and specific product recommendations based on behavior.</p>
-        </div>
-        <div class="border border-outline-variant/20 p-10 hover:border-secondary transition-colors duration-500 bg-surface">
-          <span class="font-headline-md text-secondary block mb-4">03</span>
-          <h3 class="font-headline-md text-headline-md mb-4">UGC and social proof</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant">Automating the collection and deployment of customer sentiment at the exact psychological moment of peak satisfaction.</p>
-        </div>
-        <div class="border border-outline-variant/20 p-10 hover:border-secondary transition-colors duration-500 bg-surface">
-          <span class="font-headline-md text-secondary block mb-4">04</span>
-          <h3 class="font-headline-md text-headline-md mb-4">Multi-channel orchestration</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant">Seamlessly blending SMS, email, and push notifications to meet customers where they actually engage, without over-saturation.</p>
-        </div>
-        <div class="border border-outline-variant/20 p-10 hover:border-secondary transition-colors duration-500 bg-surface">
-          <span class="font-headline-md text-secondary block mb-4">05</span>
-          <h3 class="font-headline-md text-headline-md mb-4">Post-purchase experience</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant">The "second sale" happens in the delivery phase. We optimize every touchpoint from tracking to unboxing to re-order.</p>
-        </div>
-        <div class="border border-outline-variant/20 p-10 hover:border-secondary transition-colors duration-500 bg-surface">
-          <span class="font-headline-md text-secondary block mb-4">06</span>
-          <h3 class="font-headline-md text-headline-md mb-4">Lifetime value as the north star</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant">The focus is always on optimizing the long-term value of each customer relationship - because that's what retention is actually for.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="py-section-padding-desktop px-gutter max-w-container-max mx-auto reveal" id="services">
-    <div class="flex flex-col md:flex-row justify-between items-baseline mb-20">
-      <h2 class="font-display-xl text-display-xl-mobile md:text-display-xl">What I do</h2>
-      <div class="asymmetric-rule flex-1 mx-12 hidden md:block"></div>
-      <p class="font-label-caps text-label-caps text-on-surface-variant">BESPOKE KLAVIYO SOLUTIONS</p>
-    </div>
-    <div class="space-y-px bg-outline-variant/20">
-      <div class="group bg-background py-12 grid grid-cols-12 gap-gutter items-center hover:bg-surface-container transition-colors duration-300">
-        <div class="col-span-12 md:col-span-4 px-4 md:px-0">
-          <h3 class="font-headline-md text-headline-md group-hover:text-secondary transition-colors">Strategy &amp; Audit</h3>
-        </div>
-        <div class="col-span-12 md:col-span-6 px-4 md:px-0">
-          <p class="font-body-md text-body-md text-on-surface-variant">A deep-dive technical and strategic forensic analysis of your current account to identify leakage and untapped revenue.</p>
-        </div>
-      </div>
-      <div class="group bg-background py-12 grid grid-cols-12 gap-gutter items-center hover:bg-surface-container transition-colors duration-300">
-        <div class="col-span-12 md:col-span-4 px-4 md:px-0">
-          <h3 class="font-headline-md text-headline-md group-hover:text-secondary transition-colors">Flow Build &amp; Automation</h3>
-        </div>
-        <div class="col-span-12 md:col-span-6 px-4 md:px-0">
-          <p class="font-body-md text-body-md text-on-surface-variant">Custom-built, data-driven automation sequences that handle the heavy lifting of customer nurturing 24/7.</p>
-        </div>
-      </div>
-      <div class="group bg-background py-12 grid grid-cols-12 gap-gutter items-center hover:bg-surface-container transition-colors duration-300">
-        <div class="col-span-12 md:col-span-4 px-4 md:px-0">
-          <h3 class="font-headline-md text-headline-md group-hover:text-secondary transition-colors">Campaign Management</h3>
-        </div>
-        <div class="col-span-12 md:col-span-6 px-4 md:px-0">
-          <p class="font-body-md text-body-md text-on-surface-variant">Full-service editorial planning, segmentation, and execution of high-conversion weekly campaigns.</p>
-        </div>
-      </div>
-      <div class="group bg-background py-12 grid grid-cols-12 gap-gutter items-center hover:bg-surface-container transition-colors duration-300">
-        <div class="col-span-12 md:col-span-4 px-4 md:px-0">
-          <h3 class="font-headline-md text-headline-md group-hover:text-secondary transition-colors">Reporting &amp; Analytics</h3>
-        </div>
-        <div class="col-span-12 md:col-span-6 px-4 md:px-0">
-          <p class="font-body-md text-body-md text-on-surface-variant">Continuous performance tracking and deep-dive reporting that informs the next evolution of your retention ecosystem.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="py-section-padding-desktop px-gutter max-w-container-max mx-auto reveal" id="testimonials">
-    <div class="mb-20">
-      <span class="font-label-caps text-label-caps text-secondary mb-4 block">TESTIMONIALS</span>
-      <h2 class="font-display-xl text-display-xl-mobile md:text-display-xl">Trusted by founders and marketing leaders</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-      <div class="flex flex-col">
-        <div class="mb-8 text-secondary">
-          <span class="material-symbols-outlined text-4xl">format_quote</span>
-        </div>
-        <blockquote class="font-headline-md text-headline-md italic text-on-background mb-8 leading-relaxed">
-          "Piergiorgio is a professional capable of transmitting complex concepts with extreme clarity... an invaluable reference figure for anyone who wants to master the tool."
-        </blockquote>
-        <div class="mt-auto border-t border-outline-variant/20 pt-6">
-          <cite class="font-label-caps text-label-caps text-on-surface-variant not-italic">Giuliano C.</cite>
-        </div>
-      </div>
-      <div class="flex flex-col">
-        <div class="mb-8 text-secondary">
-          <span class="material-symbols-outlined text-4xl">format_quote</span>
-        </div>
-        <blockquote class="font-headline-md text-headline-md italic text-on-background mb-8 leading-relaxed">
-          "Precise, punctual and always solution-oriented, Pier manages to transform even the most complex requests into simple, effective flows."
-        </blockquote>
-        <div class="mt-auto border-t border-outline-variant/20 pt-6">
-          <cite class="font-label-caps text-label-caps text-on-surface-variant not-italic">Victor D.</cite>
-        </div>
-      </div>
-      <div class="flex flex-col">
-        <div class="mb-8 text-secondary">
-          <span class="material-symbols-outlined text-4xl">format_quote</span>
-        </div>
-        <blockquote class="font-headline-md text-headline-md italic text-on-background mb-8 leading-relaxed">
-          "Beyond his enormous skills in automation and email marketing strategies, it is his humility and respect that distinguish him. A great professional and a wonderful person."
-        </blockquote>
-        <div class="mt-auto border-t border-outline-variant/20 pt-6">
-          <cite class="font-label-caps text-label-caps text-on-surface-variant not-italic">Omar B.</cite>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="bg-surface-container-low py-section-padding-desktop reveal" id="about">
-    <div class="max-w-container-max mx-auto px-gutter">
-      <div class="grid grid-cols-12 gap-gutter">
-        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0">
-          <div class="relative">
-            <img alt="Piergiorgio Panzini" class="w-full grayscale hover:grayscale-0 transition-all duration-700 object-cover" src="./piergiorgio.jpg">
+        <article class="case-featured reveal">
+          <div class="case-topline">
+            <p class="kicker">Case study 01</p>
+            <span class="tag">Italian ecommerce - Klaviyo</span>
           </div>
+          <div class="case-intro">
+            <h3>From a compromised list to <em>€91,000</em> in email revenue</h3>
+            <p>Three months earlier, subscribers opened 1 email out of 10. The rest landed in spam or stayed unread. The list existed - it was just compromised.</p>
+          </div>
+          <div class="before-after" aria-label="Open rate increased from 10 percent to 43.05 percent">
+            <div class="before">
+              <span class="metric struck">10%</span>
+              <span class="metric-label">open rate, before</span>
+            </div>
+            <svg class="result-arrow" viewBox="0 0 120 24" aria-hidden="true"><path d="M1 12h113M104 3l10 9-10 9"/></svg>
+            <div class="after">
+              <span class="metric metric-gold count-up" data-to="43.05" data-decimals="2" data-suffix="%">43.05%</span>
+              <span class="metric-label">average campaign open rate, month three</span>
+            </div>
+          </div>
+          <div class="stat-row stagger-group">
+            <div class="stat">
+              <span class="stat-value count-up" data-to="33532" data-prefix="€" data-grouping="true">€33,532</span>
+              <span class="stat-label">from campaigns</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value count-up" data-to="58301" data-prefix="€" data-grouping="true">€58,301</span>
+              <span class="stat-label">from automated flows</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value count-up" data-to="54.98" data-decimals="2" data-suffix="%">54.98%</span>
+              <span class="stat-label">peak open rate, best campaign</span>
+            </div>
+          </div>
+          <p class="case-closing"><span aria-hidden="true">↳</span> All of it in month three, on an account still being built.</p>
+        </article>
+
+        <article class="case-secondary reveal">
+          <div class="case-secondary-copy">
+            <div class="case-topline">
+              <p class="kicker">Case study 02</p>
+              <span class="tag">Peak season vs. spring - same account</span>
+            </div>
+            <h3>32% fewer campaigns. <em>25% more email revenue.</em></h3>
+            <p>Dec-Feb (holiday season) versus Mar-May. Fewer sends, a healthier list, better results.</p>
+            <p class="takeaway">Fewer campaigns, each one working harder. <span aria-hidden="true">↗</span></p>
+          </div>
+          <div class="mini-stats stagger-group">
+            <div class="mini-stat"><span class="count-up" data-to="25" data-prefix="+" data-suffix="%">+25%</span><p>click-through rate</p></div>
+            <div class="mini-stat"><span class="count-up" data-to="28.5" data-decimals="1" data-prefix="+" data-suffix="%">+28.5%</span><p>absolute clicks and opens</p></div>
+            <div class="mini-stat"><span class="count-up" data-to="32" data-prefix="-" data-suffix="%">-32%</span><p>campaigns sent vs. holiday season</p></div>
+            <div class="mini-stat"><span class="count-up" data-to="25" data-prefix="+" data-suffix="%">+25%</span><p>email revenue</p></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section method" id="method">
+      <div class="container">
+        <div class="section-number" aria-hidden="true">03 / Method</div>
+        <div class="method-intro">
+          <header class="section-heading reveal">
+            <p class="kicker">My philosophy</p>
+            <h2>The ecosystem <em>approach</em></h2>
+            <p>A well-built retention program isn't just about emails - it's a strategic blueprint that connects acquisition, product intelligence, omnichannel relationships, and post-purchase stability into a single, high-performing system.</p>
+          </header>
+          <figure class="ecosystem-figure reveal">
+            <div class="image-frame"><img src="/ecosystem.webp" data-root-asset="ecosystem.webp" alt="The Retention Ecosystem" width="1024" height="1024" loading="lazy"></div>
+            <figcaption>A connected system, not a collection of isolated tactics.</figcaption>
+          </figure>
         </div>
-        <div class="col-span-12 lg:col-start-7 lg:col-span-6 flex flex-col justify-center">
-          <span class="font-label-caps text-label-caps text-secondary mb-4">THE SPECIALIST</span>
-          <h2 class="font-display-xl text-display-xl-mobile md:text-headline-lg mb-8">Who I am</h2>
-          <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">
-            I'm Piergiorgio Panzini. I've been working with Klaviyo for 7 years, helping brands transition from "sending emails" to "managing relationships." My approach is selective: I take on a limited number of clients so that each one gets the attention it deserves. You aren't hiring an agency; you're hiring a partner.
-          </p>
-          <div class="grid grid-cols-3 gap-8 pt-8 border-t border-outline-variant/20">
-            <div>
-              <span class="font-display-xl text-primary block leading-none">7</span>
-              <span class="font-label-caps text-on-surface-variant uppercase">Years Experience</span>
-            </div>
-            <div>
-              <span class="font-display-xl text-primary block leading-none">50+</span>
-              <span class="font-label-caps text-on-surface-variant uppercase">Brands Managed</span>
-            </div>
-            <div></div>
+        <div class="method-grid stagger-group">
+          <article class="method-card"><span>01</span><h3>Paid media alignment</h3><p>Synchronizing Klaviyo segments with Meta and Google ads to lower CAC and suppress existing customers from top-of-funnel spend.</p></article>
+          <article class="method-card"><span>02</span><h3>Product intelligence</h3><p>Leveraging zero and first-party data to predict next-purchase timing and specific product recommendations based on behavior.</p></article>
+          <article class="method-card"><span>03</span><h3>UGC and social proof</h3><p>Automating the collection and deployment of customer sentiment at the exact psychological moment of peak satisfaction.</p></article>
+          <article class="method-card"><span>04</span><h3>Multi-channel orchestration</h3><p>Seamlessly blending SMS, email, and push notifications to meet customers where they actually engage, without over-saturation.</p></article>
+          <article class="method-card"><span>05</span><h3>Post-purchase experience</h3><p>The "second sale" happens in the delivery phase. We optimize every touchpoint from tracking to unboxing to re-order.</p></article>
+          <article class="method-card"><span>06</span><h3>Lifetime value as the north star</h3><p>The focus is always on optimizing the long-term value of each customer relationship - because that's what retention is actually for.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services container" id="services">
+      <div class="section-number" aria-hidden="true">04 / Services</div>
+      <header class="services-heading reveal">
+        <h2>What I do</h2>
+        <div class="gold-rule"></div>
+        <p class="kicker">Bespoke Klaviyo solutions</p>
+      </header>
+      <div class="service-list stagger-group">
+        <article class="service-row"><span>01</span><h3>Strategy &amp; Audit</h3><p>A deep-dive technical and strategic forensic analysis of your current account to identify leakage and untapped revenue.</p><i aria-hidden="true">↗</i></article>
+        <article class="service-row"><span>02</span><h3>Flow Build &amp; Automation</h3><p>Custom-built, data-driven automation sequences that handle the heavy lifting of customer nurturing 24/7.</p><i aria-hidden="true">↗</i></article>
+        <article class="service-row"><span>03</span><h3>Campaign Management</h3><p>Full-service editorial planning, segmentation, and execution of high-conversion weekly campaigns.</p><i aria-hidden="true">↗</i></article>
+        <article class="service-row"><span>04</span><h3>Reporting &amp; Analytics</h3><p>Continuous performance tracking and deep-dive reporting that informs the next evolution of your retention ecosystem.</p><i aria-hidden="true">↗</i></article>
+      </div>
+    </section>
+
+    <section class="section testimonials">
+      <div class="container">
+        <div class="section-number" aria-hidden="true">05 / Trust</div>
+        <header class="section-heading reveal">
+          <p class="kicker">Testimonials</p>
+          <h2>Trusted by founders and <em>marketing leaders</em></h2>
+        </header>
+        <div class="testimonial-grid stagger-group">
+          <figure><span class="quote-mark" aria-hidden="true">“</span><blockquote>"Piergiorgio is a professional capable of transmitting complex concepts with extreme clarity... an invaluable reference figure for anyone who wants to master the tool."</blockquote><figcaption>Giuliano C.</figcaption></figure>
+          <figure><span class="quote-mark" aria-hidden="true">“</span><blockquote>"Precise, punctual and always solution-oriented, Pier manages to transform even the most complex requests into simple, effective flows."</blockquote><figcaption>Victor D.</figcaption></figure>
+          <figure><span class="quote-mark" aria-hidden="true">“</span><blockquote>"Beyond his enormous skills in automation and email marketing strategies, it is his humility and respect that distinguish him. A great professional and a wonderful person."</blockquote><figcaption>Omar B.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <figure class="portrait reveal">
+          <img src="/piergiorgio.jpg" data-root-asset="piergiorgio.jpg" alt="Piergiorgio Panzini" width="1664" height="2192" loading="lazy">
+          <figcaption>Senior Klaviyo Specialist</figcaption>
+        </figure>
+        <div class="about-copy reveal">
+          <div class="section-number" aria-hidden="true">06 / About</div>
+          <p class="kicker">The specialist</p>
+          <h2>Who I am</h2>
+          <p>I'm Piergiorgio Panzini. I've been working with Klaviyo for 7 years, helping brands transition from "sending emails" to "managing relationships." My approach is selective: I take on a limited number of clients so that each one gets the attention it deserves. You aren't hiring an agency; you're hiring a partner.</p>
+          <div class="about-stats">
+            <div><span class="count-up" data-to="7">7</span><small>Years experience</small></div>
+            <div><span class="count-up" data-to="50" data-suffix="+">50+</span><small>Brands managed</small></div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- The Right Fit -->
-  <section class="py-section-padding-desktop px-gutter max-w-container-max mx-auto reveal">
-    <div class="grid grid-cols-12 gap-gutter">
-      <div class="col-span-12 md:col-span-4">
-        <h2 class="font-headline-lg text-headline-lg mb-6">The right fit</h2>
-        <p class="font-body-md text-body-md text-on-surface-variant">I don't work with everyone. My systems require a specific scale and professional mindset to be truly effective.</p>
-      </div>
-      <div class="col-span-12 md:col-start-6 md:col-span-7">
-        <ul class="space-y-6">
-          <li class="flex items-start gap-4 pb-6 border-b border-outline-variant/10">
-            <span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
-            <span class="font-body-lg text-body-lg">Brands with an established product-market fit looking to scale.</span>
-          </li>
-          <li class="flex items-start gap-4 pb-6 border-b border-outline-variant/10">
-            <span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
-            <span class="font-body-lg text-body-lg">Underperforming established accounts that need a strategic "reset."</span>
-          </li>
-          <li class="flex items-start gap-4 pb-6 border-b border-outline-variant/10">
-            <span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
-            <span class="font-body-lg text-body-lg">Brands looking for a long-term strategic partner, not a one-off gig.</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
-            <span class="font-body-lg text-body-lg">A willingness to share business context and data for holistic strategy.</span>
-          </li>
+    <section class="section fit container">
+      <div class="section-number" aria-hidden="true">07 / Fit</div>
+      <div class="fit-grid">
+        <header class="reveal"><h2>The right fit</h2><p>I don't work with everyone. My systems require a specific scale and professional mindset to be truly effective.</p></header>
+        <ul class="fit-list stagger-group">
+          <li><span aria-hidden="true">+</span><p>Brands with an established product-market fit looking to scale.</p></li>
+          <li><span aria-hidden="true">+</span><p>Underperforming established accounts that need a strategic "reset."</p></li>
+          <li><span aria-hidden="true">+</span><p>Brands looking for a long-term strategic partner, not a one-off gig.</p></li>
+          <li><span aria-hidden="true">+</span><p>A willingness to share business context and data for holistic strategy.</p></li>
         </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section class="bg-primary-container py-section-padding-desktop px-gutter reveal" id="contact">
-    <div class="max-w-container-max mx-auto text-center">
-      <span class="font-label-caps text-label-caps text-secondary mb-6 block uppercase tracking-[0.3em]">RESERVE YOUR CONSULTATION</span>
-      <h2 class="font-display-xl text-display-xl-mobile md:text-display-xl mb-8">Let's talk</h2>
-      <div class="max-w-2xl mx-auto mb-12">
-        <p class="font-body-lg text-body-lg text-on-surface-variant">
-          If you're ready to build a retention ecosystem that works across your entire operation, I'm happy to have a direct conversation.
-        </p>
+    <section class="contact" id="contact">
+      <div class="contact-glow" aria-hidden="true"></div>
+      <div class="container reveal">
+        <p class="kicker">Reserve your consultation</p>
+        <h2>Let's <em>talk</em></h2>
+        <p>If you're ready to build a retention ecosystem that works across your entire operation, I'm happy to have a direct conversation.</p>
+        <a class="button button-large" href="https://www.linkedin.com/in/piergiorgiopanzini/" target="_blank" rel="noopener noreferrer">Contact me <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="flex flex-col items-center gap-8">
-        <a class="bg-secondary text-on-secondary px-12 py-6 font-label-caps text-label-caps text-xl uppercase tracking-widest amber-hover-btn" href="https://www.linkedin.com/in/piergiorgiopanzini/" target="_blank" rel="noopener noreferrer">
-          Contact me
-        </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-top">
+      <a class="brand" href="/"><span class="brand-mark">PP</span><span class="brand-name">Piergiorgio Panzini</span></a>
+      <div class="footer-meta">
+        <p>© 2026 Piergiorgio Panzini. All rights reserved.</p>
+        <p>P.IVA 15797081005</p>
+        <a href="https://www.linkedin.com/in/piergiorgiopanzini/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
       </div>
     </div>
-  </section>
-
-</main>
-
-<!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-outline-variant/20 py-section-padding-desktop">
-  <div class="flex flex-col justify-between items-center w-full px-gutter max-w-container-max mx-auto gap-8 md:justify-center text-center">
-    <div class="font-label-caps text-label-caps text-on-background">
-      PIERGIORGIO PANZINI
+    <div class="container footer-privacy">
+      <p>This website does not collect, store or process personal data, and does not use cookies or tracking technologies. Clicking "Contact me" redirects to LinkedIn, an independent third-party platform subject to its own <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>. In accordance with EU Regulation 2016/679 (GDPR), no personal data processing takes place on this site.</p>
+      <a href="#main">Back to top ↑</a>
     </div>
-    <div class="font-body-md text-body-md text-on-surface-variant">
-      &copy; 2026 Piergiorgio Panzini. All rights reserved.
-    </div>
-    <div class="font-body-md text-body-md text-on-surface-variant/60">
-      P.IVA 15797081005
-    </div>
-    <div class="flex gap-10">
-      <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline transition-all duration-200" href="https://www.linkedin.com/in/piergiorgiopanzini/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-    <div class="max-w-2xl">
-      <p class="font-body-md text-body-md text-on-surface-variant/50 text-sm leading-relaxed">
-        This website does not collect, store or process personal data, and does not use cookies or tracking technologies. Clicking "Contact me" redirects to LinkedIn, an independent third-party platform subject to its own
-        <a class="underline hover:text-primary transition-colors" href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
-        In accordance with EU Regulation 2016/679 (GDPR), no personal data processing takes place on this site.
-      </p>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // Mobile menu toggle
-  function toggleMobileMenu() {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
-  }
-
-  // Reveal on scroll
-  const reveals = document.querySelectorAll(".reveal");
-  const revealOnScroll = () => {
-    for (let i = 0; i < reveals.length; i++) {
-      const windowHeight = window.innerHeight;
-      const elementTop = reveals[i].getBoundingClientRect().top;
-      const elementVisible = 150;
-      if (elementTop < windowHeight - elementVisible) {
-        reveals[i].classList.add("active");
-      }
-    }
-  };
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll();
-</script>
-
+  </footer>
 </body>
 </html>
