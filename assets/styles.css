@@ -25,6 +25,8 @@
 }
 
 html {
+  overflow-x: hidden;
+  overflow-x: clip;
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
   background: var(--bg);
@@ -33,6 +35,7 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
+  overflow-x: clip;
   background:
     radial-gradient(circle at 75% -15%, rgba(232, 184, 75, 0.065), transparent 28rem),
     var(--bg);
@@ -191,6 +194,18 @@ em {
   width: min(8rem, 30%);
   height: 1px;
   background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -0.125em;
 }
 
 .button {
@@ -387,6 +402,7 @@ em {
 .hero {
   position: relative;
   display: grid;
+  overflow: clip;
   min-height: calc(100svh - 4.6rem);
   align-items: center;
   padding-block: clamp(5rem, 9vw, 8rem) 6.5rem;
@@ -1272,6 +1288,11 @@ em {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.footer-meta a {
+  white-space: nowrap;
 }
 
 .js .reveal,
@@ -1325,7 +1346,7 @@ em {
 
 @media (max-width: 760px) {
   :root {
-    --section-space: 6rem;
+    --section-space: 4.5rem;
   }
 
   .brand-name {
@@ -1333,8 +1354,21 @@ em {
   }
 
   .hero {
-    min-height: calc(100svh - 4.6rem);
-    padding-top: 4.5rem;
+    min-height: auto;
+    padding-block: 4.5rem 5rem;
+  }
+
+  .scroll-cue {
+    position: static;
+    margin-top: 3rem;
+  }
+
+  .contact {
+    padding-block: var(--section-space);
+  }
+
+  .section-number {
+    margin-bottom: 2.5rem;
   }
 
   .hero::before,
