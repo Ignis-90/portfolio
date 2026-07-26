@@ -481,36 +481,21 @@ em {
   text-transform: uppercase;
 }
 
-.scroll-cue {
+.hero::after,
+main > .section::after {
   position: absolute;
-  bottom: 1.5rem;
-  left: 0;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: var(--ink-faint);
-  font-size: 0.57rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.scroll-line {
-  position: relative;
-  width: 4rem;
-  height: 1px;
-  overflow: hidden;
-  background: var(--hairline-strong);
-}
-
-.scroll-line::after {
-  position: absolute;
-  width: 45%;
-  height: 100%;
-  transform: translateX(-120%);
-  background: var(--gold);
+  bottom: 0.6rem;
+  left: 50%;
+  width: 1px;
+  height: clamp(1.7rem, 3.5vw, 2.6rem);
+  background: linear-gradient(180deg, rgba(232, 184, 75, 0), var(--gold) 60%, rgba(232, 184, 75, 0.2));
   content: "";
-  animation: scroll-line 2.6s var(--ease) infinite;
+  animation: thread-pulse 3s ease-in-out infinite;
+}
+
+@keyframes thread-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.85; }
 }
 
 .hero-glow,
@@ -529,9 +514,6 @@ em {
   right: -11rem;
 }
 
-@keyframes scroll-line {
-  50%, 100% { transform: translateX(250%); }
-}
 
 .problem {
   border-top: 1px solid var(--hairline);
@@ -1358,17 +1340,30 @@ em {
     padding-block: 4.5rem 5rem;
   }
 
-  .scroll-cue {
-    position: static;
-    margin-top: 3rem;
-  }
-
   .contact {
     padding-block: var(--section-space);
   }
 
   .section-number {
     margin-bottom: 2.5rem;
+  }
+
+  .case-studies {
+    padding-bottom: 2.5rem;
+  }
+
+  .method,
+  .testimonials,
+  .fit {
+    padding-bottom: 3rem;
+  }
+
+  .services {
+    padding-bottom: 2.75rem;
+  }
+
+  .testimonial-grid figure {
+    min-height: 0;
   }
 
   .hero::before,
