@@ -122,4 +122,55 @@
     );
     countElements.forEach((element) => counterObserver.observe(element));
   }
+
+  const consentBanner = document.querySelector("[data-consent-banner]");
+  const consentAccept = document.querySelector("[data-consent-accept]");
+  const consentReject = document.querySelector("[data-consent-reject]");
+  const consentChoice = localStorage.getItem("oaiq-consent");
+
+  const fireConversion = () => {
+    const eventId =
+      window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+
+    window.oaiq?.(
+      "measure",
+      "page_viewed",
+      {
+        type: "contents",
+        contents: [
+          {
+            id: location.pathname || "/",
+            name: document.title,
+            content_type: "page",
+          },
+        ],
+      },
+      { event_id: eventId }
+    );
+
+    fetch("/api/ads-conversion", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ event_id: eventId, source_url: location.href }),
+    }).catch(() => {});
+  };
+
+  if (consentChoice === "granted") {
+    window.oaiq?.("consent", true);
+    fireConversion();
+  } else if (consentChoice !== "denied" && consentBanner) {
+    consentBanner.hidden = false;
+  }
+
+  consentAccept?.addEventListener("click", () => {
+    localStorage.setItem("oaiq-consent", "granted");
+    window.oaiq?.("consent", true);
+    fireConversion();
+    if (consentBanner) consentBanner.hidden = true;
+  });
+
+  consentReject?.addEventListener("click", () => {
+    localStorage.setItem("oaiq-consent", "denied");
+    if (consentBanner) consentBanner.hidden = true;
+  });
 })();

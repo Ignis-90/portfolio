@@ -3,6 +3,11 @@
 <head>
   <meta charset="utf-8">
   <script>document.documentElement.classList.add("js");</script>
+  <script>
+    !function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+    oaiq("consent", false);
+    oaiq("init",{pixelId:"G5g2G6h9mCLMykLsKtV5My",debug:true});
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Piergiorgio Panzini | Senior Klaviyo Specialist</title>
   <meta name="description" content="Strategia, automazioni e gestione Klaviyo per ecommerce che fanno sul serio con la retention. Casi studio: 91.000€ di revenue email in 3 mesi da una lista compromessa.">
@@ -26,6 +31,15 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
+  <div class="consent-banner" data-consent-banner hidden>
+    <div class="container consent-banner-inner">
+      <p>Questo sito usa il pixel OpenAI Ads per misurare le performance pubblicitarie. Resta disattivato finché non accetti.</p>
+      <div class="consent-actions">
+        <button type="button" class="button-outline button-small" data-consent-reject>Rifiuta</button>
+        <button type="button" class="button button-small" data-consent-accept>Accetta</button>
+      </div>
+    </div>
+  </div>
   <header class="site-header" data-header>
     <nav class="nav container" aria-label="Navigazione principale">
       <a class="brand" href="/" aria-label="Piergiorgio Panzini, home">
@@ -260,7 +274,7 @@
       </div>
     </div>
     <div class="container footer-privacy">
-      <p>Questo sito non raccoglie, conserva né tratta dati personali e non utilizza cookie o tecnologie di tracciamento. Cliccando su "Scrivimi" verrai reindirizzato a LinkedIn, piattaforma terza indipendente soggetta alla propria <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>. Ai sensi del Regolamento UE 2016/679 (GDPR), su questo sito non avviene alcun trattamento di dati personali.</p>
+      <p>Questo sito utilizza il pixel di misurazione OpenAI Ads per monitorare le performance pubblicitarie, solo dopo che lo accetti tramite il banner. Nessun dato viene raccolto prima del tuo consenso, che puoi revocare in qualsiasi momento cancellando i dati di navigazione del browser. Cliccando su "Scrivimi" verrai reindirizzato a LinkedIn, piattaforma terza indipendente soggetta alla propria <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>. Ai sensi del Regolamento UE 2016/679 (GDPR), il trattamento dei dati personali avviene solo previo tuo consenso esplicito.</p>
       <a href="#main">Torna su <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
     </div>
   </footer>
