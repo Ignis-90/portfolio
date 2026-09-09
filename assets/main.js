@@ -147,7 +147,7 @@
   };
 
   const createEventId = () =>
-    window.crypto?.randomUUID?.() || `1788987026757-c67bc12a99d578`;
+    window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
   const firePageView = () => {
     if (pageViewSent) return;
