@@ -128,10 +128,10 @@
   const consentReject = document.querySelector("[data-consent-reject]");
   const consentChoice = localStorage.getItem("oaiq-consent");
 
-  const fireConversion = () => {
-    const eventId =
-      window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  const createEventId = () =>
+    window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
+  const firePageView = () => {
     window.oaiq?.(
       "measure",
       "page_viewed",
@@ -145,19 +145,40 @@
           },
         ],
       },
-      { event_id: eventId }
+      { event_id: createEventId() }
     );
-
-    fetch("/api/ads-conversion", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ event_id: eventId, source_url: location.href }),
-    }).catch(() => {});
   };
+
+  const fireContactClick = (link) => {
+    if (localStorage.getItem("oaiq-consent") !== "granted") return;
+
+    window.oaiq?.(
+      "measure",
+      "custom",
+      {
+        type: "custom",
+        contents: [
+          {
+            id: "linkedin_contact",
+            name: link.textContent.trim(),
+            content_type: "contact_cta",
+          },
+        ],
+      },
+      {
+        custom_event_name: "contact_clicked",
+        event_id: createEventId(),
+      }
+    );
+  };
+
+  document.querySelectorAll('a[href*="linkedin.com/in/piergiorgiopanzini"]').forEach((link) => {
+    link.addEventListener("click", () => fireContactClick(link));
+  });
 
   if (consentChoice === "granted") {
     window.oaiq?.("consent", true);
-    fireConversion();
+    firePageView();
   } else if (consentChoice !== "denied" && consentBanner) {
     consentBanner.hidden = false;
   }
@@ -165,7 +186,7 @@
   consentAccept?.addEventListener("click", () => {
     localStorage.setItem("oaiq-consent", "granted");
     window.oaiq?.("consent", true);
-    fireConversion();
+    firePageView();
     if (consentBanner) consentBanner.hidden = true;
   });
 
