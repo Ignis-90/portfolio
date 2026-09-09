@@ -126,49 +126,63 @@
   const consentBanner = document.querySelector("[data-consent-banner]");
   const consentAccept = document.querySelector("[data-consent-accept]");
   const consentReject = document.querySelector("[data-consent-reject]");
-  const consentChoice = localStorage.getItem("oaiq-consent");
+  const consentOpenButtons = document.querySelectorAll("[data-consent-open]");
+  const contactForm = document.querySelector("[data-contact-form]");
+  let pageViewSent = false;
+
+  const getConsentChoice = () => {
+    try {
+      return localStorage.getItem("oaiq-consent");
+    } catch {
+      return null;
+    }
+  };
+
+  const setConsentChoice = (choice) => {
+    try {
+      localStorage.setItem("oaiq-consent", choice);
+    } catch {
+      // The Pixel consent state still applies for the current page.
+    }
+  };
 
   const createEventId = () =>
-    window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    window.crypto?.randomUUID?.() || `1788987026757-c67bc12a99d578`;
 
   const firePageView = () => {
+    if (pageViewSent) return;
+    pageViewSent = true;
     window.oaiq?.(
       "measure",
       "page_viewed",
       {
         type: "contents",
-        contents: [
-          {
-            id: location.pathname || "/",
-            name: document.title,
-            content_type: "page",
-          },
-        ],
+        contents: [{ id: location.pathname || "/", name: document.title, content_type: "page" }],
       },
       { event_id: createEventId() }
     );
   };
 
   const fireContactClick = (link) => {
-    if (localStorage.getItem("oaiq-consent") !== "granted") return;
-
+    if (getConsentChoice() !== "granted") return;
     window.oaiq?.(
       "measure",
       "custom",
       {
         type: "custom",
-        contents: [
-          {
-            id: "linkedin_contact",
-            name: link.textContent.trim(),
-            content_type: "contact_cta",
-          },
-        ],
+        contents: [{ id: "linkedin_contact", name: link.textContent.trim(), content_type: "contact_cta" }],
       },
-      {
-        custom_event_name: "contact_clicked",
-        event_id: createEventId(),
-      }
+      { custom_event_name: "contact_clicked", event_id: createEventId() }
+    );
+  };
+
+  const fireLeadCreated = () => {
+    if (getConsentChoice() !== "granted") return;
+    window.oaiq?.(
+      "measure",
+      "lead_created",
+      { type: "customer_action" },
+      { event_id: createEventId() }
     );
   };
 
@@ -176,6 +190,15 @@
     link.addEventListener("click", () => fireContactClick(link));
   });
 
+  consentOpenButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!consentBanner) return;
+      consentBanner.hidden = false;
+      consentReject?.focus();
+    });
+  });
+
+  const consentChoice = getConsentChoice();
   if (consentChoice === "granted") {
     window.oaiq?.("consent", true);
     firePageView();
@@ -184,14 +207,51 @@
   }
 
   consentAccept?.addEventListener("click", () => {
-    localStorage.setItem("oaiq-consent", "granted");
+    setConsentChoice("granted");
     window.oaiq?.("consent", true);
     firePageView();
     if (consentBanner) consentBanner.hidden = true;
   });
 
   consentReject?.addEventListener("click", () => {
-    localStorage.setItem("oaiq-consent", "denied");
+    setConsentChoice("denied");
+    window.oaiq?.("consent", false);
     if (consentBanner) consentBanner.hidden = true;
   });
+
+  contactForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const status = contactForm.querySelector("[data-contact-status]");
+    if (!submitButton || !status) return;
+
+    const originalMarkup = submitButton.innerHTML;
+    status.textContent = "";
+    status.className = "form-status";
+    submitButton.disabled = true;
+    submitButton.textContent = submitButton.dataset.submitPending || "Sending…";
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: { Accept: "application/json" },
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result.success === false || result.success === "false") {
+        throw new Error("Submission rejected");
+      }
+      contactForm.reset();
+      status.textContent = status.dataset.success;
+      status.classList.add("is-success");
+      fireLeadCreated();
+    } catch {
+      status.textContent = status.dataset.error;
+      status.classList.add("is-error");
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML = originalMarkup;
+    }
+  });
+
 })();
