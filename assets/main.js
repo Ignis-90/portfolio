@@ -1,6 +1,40 @@
 (() => {
   "use strict";
 
+  // Small layout corrections kept here so every localized page gets the same fix
+  // without duplicating overrides across the HTML files.
+  const layoutFixes = document.createElement("style");
+  layoutFixes.dataset.layoutFixes = "2026-09-10";
+  layoutFixes.textContent = `
+    :root { --section-space: clamp(5.5rem, 8.5vw, 8.25rem); }
+    .section-number { margin-bottom: clamp(2.5rem, 4.5vw, 4rem); }
+    .section-heading { margin-bottom: clamp(3rem, 5.5vw, 4.75rem); }
+    .hero { padding-block: clamp(4rem, 7vw, 6.5rem) 5.5rem; }
+    .case-studies { padding-bottom: clamp(6.5rem, 9vw, 8.5rem); }
+    .takeaway { display: flex; align-items: center; gap: .65rem; width: fit-content; }
+    .takeaway > span { display: inline-flex; flex: 0 0 auto; }
+
+    @media (max-width: 760px) {
+      :root { --section-space: 4.25rem; }
+      .hero { min-height: auto; padding-block: 3.25rem 4.5rem; }
+      .section-number { margin-bottom: 2.25rem; }
+      .section-heading { margin-bottom: 3rem; }
+      .case-studies { padding-bottom: 5.25rem; }
+      .method { padding-top: 4rem; }
+      .takeaway { align-items: flex-start; gap: .55rem; margin-bottom: 2.75rem; }
+      .takeaway > span { margin-top: .22em; }
+      .case-secondary-copy > p:not(.takeaway) { margin-bottom: 1.7rem; }
+      .mini-stats { margin-top: 0 !important; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding-top: 2.75rem; }
+      .case-studies { padding-bottom: 5.5rem; }
+      .method { padding-top: 3.75rem; }
+    }
+  `;
+  document.head.appendChild(layoutFixes);
+
   const rootAssets = document.querySelectorAll("[data-root-asset]");
   if (window.location.protocol === "file:") {
     const isItalian = document.documentElement.lang === "it";
@@ -67,12 +101,12 @@
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -5% 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -4% 0px" }
     );
     revealElements.forEach((element) => revealObserver.observe(element));
   }
 
-  const countElements = document.querySelectorAll(".count-up");
+  const countElements = [...document.querySelectorAll(".count-up")];
   const locale = document.documentElement.lang === "it" ? "it-IT" : "en-US";
 
   const formatValue = (element, value) => {
@@ -81,22 +115,23 @@
     const number = new Intl.NumberFormat(locale, {
       minimumFractionDigits: decimals,
       maximumFractionDigits: decimals,
-      useGrouping: grouping
+      useGrouping: grouping,
     }).format(value);
     return `${element.dataset.prefix || ""}${number}${element.dataset.suffix || ""}`;
   };
 
   const animateCount = (element) => {
     if (element.dataset.counted === "true") return;
-    element.dataset.counted = "true";
     const target = Number(element.dataset.to);
+    if (!Number.isFinite(target)) return;
 
-    if (reducedMotion || !Number.isFinite(target)) {
-      if (Number.isFinite(target)) element.textContent = formatValue(element, target);
+    element.dataset.counted = "true";
+    if (reducedMotion) {
+      element.textContent = formatValue(element, target);
       return;
     }
 
-    const duration = 1200;
+    const duration = 1250;
     const start = performance.now();
     const step = (time) => {
       const progress = Math.min((time - start) / duration, 1);
@@ -105,6 +140,18 @@
       if (progress < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
+  };
+
+  const isInCounterViewport = (element) => {
+    const rect = element.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    return rect.top < vh * 0.9 && rect.bottom > vh * 0.08;
+  };
+
+  const startVisibleCounters = () => {
+    countElements.forEach((element) => {
+      if (element.dataset.counted !== "true" && isInCounterViewport(element)) animateCount(element);
+    });
   };
 
   if (reducedMotion || !("IntersectionObserver" in window)) {
@@ -118,9 +165,15 @@
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.45 }
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
     );
     countElements.forEach((element) => counterObserver.observe(element));
+
+    // Safari/iOS can restore a page from the back-forward cache without firing
+    // the observer as expected. A lightweight visibility scan makes the count-up reliable.
+    window.addEventListener("pageshow", () => requestAnimationFrame(startVisibleCounters));
+    window.addEventListener("orientationchange", () => setTimeout(startVisibleCounters, 120));
+    requestAnimationFrame(startVisibleCounters);
   }
 
   const consentBanner = document.querySelector("[data-consent-banner]");
@@ -286,5 +339,4 @@
       if (!frame) frame = requestAnimationFrame(renderParallax);
     });
   }
-
 })();
