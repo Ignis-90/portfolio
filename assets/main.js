@@ -4,7 +4,7 @@
   // Small layout corrections kept here so every localized page gets the same fix
   // without duplicating overrides across the HTML files.
   const layoutFixes = document.createElement("style");
-  layoutFixes.dataset.layoutFixes = "2026-09-10-c";
+  layoutFixes.dataset.layoutFixes = "2026-09-10-d";
   layoutFixes.textContent = `
     :root { --section-space: clamp(5.5rem, 8.5vw, 8.25rem); }
     .section-number { margin-bottom: clamp(2.5rem, 4.5vw, 4rem); }
@@ -39,6 +39,10 @@
         display: inline-flex;
         flex: 0 0 auto;
         margin: 0;
+      }
+
+      .ecosystem-map li {
+        font-size: clamp(.9rem, 4vw, 1.05rem);
       }
     }
 
