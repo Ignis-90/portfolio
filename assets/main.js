@@ -254,4 +254,37 @@
     }
   });
 
+  const observatory = document.querySelector("[data-observatory]");
+  if (observatory && !reducedMotion && window.matchMedia("(pointer: fine)").matches) {
+    const cards = observatory.querySelectorAll("[data-parallax]");
+    let pointerX = 0;
+    let pointerY = 0;
+    let frame = 0;
+
+    const renderParallax = () => {
+      cards.forEach((card) => {
+        const depth = Number(card.dataset.parallax || 0.5);
+        const x = pointerX * 15 * depth;
+        const y = pointerY * 12 * depth;
+        const rotateX = pointerY * -2.2 * depth;
+        const rotateY = pointerX * 2.8 * depth;
+        card.style.transform = `translate3d(${x}px, ${y}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+      frame = 0;
+    };
+
+    observatory.addEventListener("pointermove", (event) => {
+      const bounds = observatory.getBoundingClientRect();
+      pointerX = (event.clientX - bounds.left) / bounds.width - 0.5;
+      pointerY = (event.clientY - bounds.top) / bounds.height - 0.5;
+      if (!frame) frame = requestAnimationFrame(renderParallax);
+    });
+
+    observatory.addEventListener("pointerleave", () => {
+      pointerX = 0;
+      pointerY = 0;
+      if (!frame) frame = requestAnimationFrame(renderParallax);
+    });
+  }
+
 })();
