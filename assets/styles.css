@@ -125,16 +125,20 @@ em {
   top: 0.75rem;
   left: 0.75rem;
   padding: 0.65rem 1rem;
-  transform: translateY(-180%);
+  transform: translateY(calc(-100% - 2rem));
+  opacity: 0;
+  pointer-events: none;
   background: var(--gold-bright);
   color: var(--bg);
   font-size: 0.8rem;
   font-weight: 600;
-  transition: transform 0.2s;
+  transition: transform 0.2s, opacity 0.2s;
 }
 
-.skip-link:focus {
+.skip-link:focus-visible {
   transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .container {
