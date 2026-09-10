@@ -4,7 +4,7 @@
   // Small layout corrections kept here so every localized page gets the same fix
   // without duplicating overrides across the HTML files.
   const layoutFixes = document.createElement("style");
-  layoutFixes.dataset.layoutFixes = "2026-09-10-e";
+  layoutFixes.dataset.layoutFixes = "2026-09-10-f";
   layoutFixes.textContent = `
     :root { --section-space: clamp(5.5rem, 8.5vw, 8.25rem); }
     .section-number { margin-bottom: clamp(2.5rem, 4.5vw, 4rem); }
@@ -62,18 +62,25 @@
         font-size: clamp(.9rem, 4vw, 1.05rem);
       }
 
-      .method-card { padding-block: 1.8rem; }
-      .method-card > span { margin-bottom: 2rem; }
+      .method-card {
+        min-height: auto;
+        padding-block: 1.55rem 1.7rem;
+      }
+      .method-card > span { margin-bottom: 1.35rem; }
+      .method-card h3 { margin-bottom: .8rem; }
+      .method-card p { margin-bottom: 0; }
 
-      .services-heading { margin-bottom: 2.75rem; }
-      .service-row { row-gap: .65rem; padding-block: 1.7rem; }
+      .services-heading { margin-bottom: 2.5rem; }
+      .service-row { row-gap: .6rem; padding-block: 1.55rem; }
+      .services { padding-bottom: 3.4rem; }
+      .testimonials { padding-top: 3.4rem; }
 
-      .testimonial-grid figure { padding-block: 1.9rem; }
-      .testimonial-grid blockquote { margin-block: 1.5rem; }
-      .testimonial-grid figcaption { margin-top: 1.75rem; }
+      .testimonial-grid figure { padding-block: 1.75rem; }
+      .testimonial-grid blockquote { margin-block: 1.25rem; }
+      .testimonial-grid figcaption { margin-top: 1.5rem; }
 
       .about-grid,
-      .fit-grid { gap: 3rem; }
+      .fit-grid { gap: 2.6rem; }
       .about-copy { padding-top: .25rem; }
       .about-copy .section-number { margin-bottom: 2.25rem; }
       .about-stats { margin-top: 2.5rem; }
