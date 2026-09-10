@@ -4,7 +4,7 @@
   // Small layout corrections kept here so every localized page gets the same fix
   // without duplicating overrides across the HTML files.
   const layoutFixes = document.createElement("style");
-  layoutFixes.dataset.layoutFixes = "2026-09-10-b";
+  layoutFixes.dataset.layoutFixes = "2026-09-10-c";
   layoutFixes.textContent = `
     :root { --section-space: clamp(5.5rem, 8.5vw, 8.25rem); }
     .section-number { margin-bottom: clamp(2.5rem, 4.5vw, 4rem); }
@@ -19,33 +19,60 @@
       .hero { min-height: auto; padding-block: 3rem 4.25rem; }
       .section-number { margin-bottom: 2rem; }
       .section-heading { margin-bottom: 2.75rem; }
-      .case-studies { padding-bottom: 4.9rem; }
-      .method { padding-top: 2.6rem; }
-      .case-secondary-copy .takeaway { display: none; }
-      .case-secondary-copy > p:not(.takeaway) { margin-bottom: 1.45rem; }
+      .case-studies { padding-bottom: 5.25rem; }
+      .method { padding-top: 4rem; }
+
+      .case-secondary { row-gap: 1rem; }
+      .case-secondary-copy > p:not(.takeaway) { margin-bottom: 0; }
       .mini-stats { margin-top: 0 !important; }
-      .mini-stats::after {
-        content: "Meno campagne, ognuna lavora di più. ↗";
-        display: block;
-        grid-column: 1 / -1;
-        margin-top: 1.2rem;
-        color: var(--gold-bright);
-        font-family: var(--serif);
-        font-size: clamp(1.45rem, 5.2vw, 1.8rem);
-        font-style: italic;
-        line-height: 1.12;
-        letter-spacing: -0.03em;
+
+      .case-secondary > .takeaway {
+        display: flex;
+        align-items: center;
+        gap: .55rem;
+        width: fit-content;
+        margin: .9rem 0 0;
+        padding-top: 1rem;
+      }
+
+      .case-secondary > .takeaway > span {
+        display: inline-flex;
+        flex: 0 0 auto;
+        margin: 0;
       }
     }
 
     @media (max-width: 480px) {
       .hero { padding-top: 2.5rem; }
-      .case-studies { padding-bottom: 5rem; }
-      .method { padding-top: 2.2rem; }
-      .mini-stats::after { margin-top: 1rem; }
+      .case-studies { padding-bottom: 5.5rem; }
+      .method { padding-top: 3.75rem; }
     }
   `;
   document.head.appendChild(layoutFixes);
+
+  // On mobile, place the real takeaway after the stats instead of recreating it
+  // with generated text. This preserves the original SVG arrow and avoids emoji rendering.
+  const caseSecondary = document.querySelector(".case-secondary");
+  const caseSecondaryCopy = caseSecondary?.querySelector(".case-secondary-copy");
+  const caseSecondaryStats = caseSecondary?.querySelector(".mini-stats");
+  const caseSecondaryTakeaway = caseSecondaryCopy?.querySelector(".takeaway");
+  const mobileCaseQuery = window.matchMedia("(max-width: 760px)");
+
+  const placeCaseTakeaway = () => {
+    if (!caseSecondary || !caseSecondaryCopy || !caseSecondaryStats || !caseSecondaryTakeaway) return;
+    if (mobileCaseQuery.matches) {
+      caseSecondaryStats.insertAdjacentElement("afterend", caseSecondaryTakeaway);
+    } else {
+      caseSecondaryCopy.appendChild(caseSecondaryTakeaway);
+    }
+  };
+
+  placeCaseTakeaway();
+  if (mobileCaseQuery.addEventListener) {
+    mobileCaseQuery.addEventListener("change", placeCaseTakeaway);
+  } else {
+    mobileCaseQuery.addListener(placeCaseTakeaway);
+  }
 
   const rootAssets = document.querySelectorAll("[data-root-asset]");
   if (window.location.protocol === "file:") {
