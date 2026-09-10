@@ -4,7 +4,7 @@
   // Small layout corrections kept here so every localized page gets the same fix
   // without duplicating overrides across the HTML files.
   const layoutFixes = document.createElement("style");
-  layoutFixes.dataset.layoutFixes = "2026-09-10-d";
+  layoutFixes.dataset.layoutFixes = "2026-09-10-e";
   layoutFixes.textContent = `
     :root { --section-space: clamp(5.5rem, 8.5vw, 8.25rem); }
     .section-number { margin-bottom: clamp(2.5rem, 4.5vw, 4rem); }
@@ -15,24 +15,27 @@
     .takeaway > span { display: inline-flex; flex: 0 0 auto; }
 
     @media (max-width: 760px) {
-      :root { --section-space: 4.1rem; }
-      .hero { min-height: auto; padding-block: 3rem 4.25rem; }
-      .section-number { margin-bottom: 2rem; }
-      .section-heading { margin-bottom: 2.75rem; }
+      :root { --section-space: 4.35rem; }
+      .hero { min-height: auto; padding-block: 3rem 4.5rem; }
+      .section-number { margin-bottom: 2.25rem; }
+      .section-heading { margin-bottom: 3rem; }
       .case-studies { padding-bottom: 5.25rem; }
-      .method { padding-top: 4rem; }
+      .method { padding-top: 4.25rem; }
 
-      .case-secondary { row-gap: 1rem; }
+      .case-featured { margin-bottom: 2.25rem; }
+      .case-intro { padding-block: 2.75rem; }
+      .before-after { padding-block: 2.25rem; }
+      .case-secondary { row-gap: 1.25rem; }
       .case-secondary-copy > p:not(.takeaway) { margin-bottom: 0; }
-      .mini-stats { margin-top: 0 !important; }
+      .mini-stats { margin-top: .25rem !important; }
 
       .case-secondary > .takeaway {
         display: flex;
         align-items: center;
         gap: .55rem;
         width: fit-content;
-        margin: .9rem 0 0;
-        padding-top: 1rem;
+        margin: 1rem 0 0;
+        padding-top: 1.1rem;
       }
 
       .case-secondary > .takeaway > span {
@@ -41,15 +44,54 @@
         margin: 0;
       }
 
+      .ecosystem-map {
+        min-height: 25rem;
+        margin: .5rem 0 3.25rem;
+      }
+
+      .ecosystem-map ol { gap: .25rem; }
+
+      .ecosystem-map li,
+      .ecosystem-map li:nth-child(even),
+      .ecosystem-map li:nth-child(odd) {
+        gap: 1rem;
+        padding: .9rem 1rem;
+      }
+
       .ecosystem-map li {
         font-size: clamp(.9rem, 4vw, 1.05rem);
       }
+
+      .method-card { padding-block: 1.8rem; }
+      .method-card > span { margin-bottom: 2rem; }
+
+      .services-heading { margin-bottom: 2.75rem; }
+      .service-row { row-gap: .65rem; padding-block: 1.7rem; }
+
+      .testimonial-grid figure { padding-block: 1.9rem; }
+      .testimonial-grid blockquote { margin-block: 1.5rem; }
+      .testimonial-grid figcaption { margin-top: 1.75rem; }
+
+      .about-grid,
+      .fit-grid { gap: 3rem; }
+      .about-copy { padding-top: .25rem; }
+      .about-copy .section-number { margin-bottom: 2.25rem; }
+      .about-stats { margin-top: 2.5rem; }
+
+      .fit-list li { padding-block: 1.45rem; }
+
+      .contact { padding-block: 5.5rem; }
+      .contact-layout { gap: 3rem; }
+      .contact .contact-intro h2 { margin-bottom: 1.5rem; }
+      .contact .contact-intro > p { margin-bottom: 1.75rem; }
+      .contact-promises li { padding-block: .65rem; }
     }
 
     @media (max-width: 480px) {
       .hero { padding-top: 2.5rem; }
-      .case-studies { padding-bottom: 5.5rem; }
-      .method { padding-top: 3.75rem; }
+      .case-studies { padding-bottom: 5.25rem; }
+      .method { padding-top: 4rem; }
+      .contact { padding-block: 5rem; }
     }
   `;
   document.head.appendChild(layoutFixes);
