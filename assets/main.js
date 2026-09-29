@@ -9,14 +9,14 @@
     :root { --section-space: clamp(5.5rem, 8.5vw, 8.25rem); }
     .section-number { margin-bottom: clamp(2.5rem, 4.5vw, 4rem); }
     .section-heading { margin-bottom: clamp(3rem, 5.5vw, 4.75rem); }
-    .hero { padding-block: clamp(4rem, 7vw, 6.5rem) 5.5rem; }
+    .hero { min-height: 0; padding-block: clamp(1.75rem, 3vw, 3rem) clamp(3rem, 5vw, 4.5rem); }
     .case-studies { padding-bottom: clamp(6.5rem, 9vw, 8.5rem); }
     .takeaway { display: flex; align-items: center; gap: .65rem; width: fit-content; }
     .takeaway > span { display: inline-flex; flex: 0 0 auto; }
 
     @media (max-width: 760px) {
       :root { --section-space: 4.35rem; }
-      .hero { min-height: auto; padding-block: 3rem 4.5rem; }
+      .hero { min-height: auto; padding-block: 1.25rem 3rem; }
       .section-number { margin-bottom: 2.25rem; }
       .section-heading { margin-bottom: 3rem; }
       .case-studies { padding-bottom: 5.25rem; }
@@ -390,6 +390,9 @@
       status.textContent = status.dataset.success;
       status.classList.add("is-success");
       fireLeadCreated();
+      if (contactForm.dataset.redirect) {
+        window.setTimeout(() => window.location.assign(contactForm.dataset.redirect), 600);
+      }
     } catch {
       status.textContent = status.dataset.error;
       status.classList.add("is-error");

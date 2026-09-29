@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.panzini.pro/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.panzini.pro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.panzini.pro/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.panzini.pro/"/>
+  </url>
+  <url>
+    <loc>https://www.panzini.pro/en/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.panzini.pro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.panzini.pro/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.panzini.pro/"/>
+  </url>
+  <url>
+    <loc>https://www.panzini.pro/it/privacy/</loc>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://www.panzini.pro/en/privacy/</loc>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+</urlset>
